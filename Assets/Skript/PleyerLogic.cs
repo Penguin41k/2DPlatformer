@@ -1,7 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class PleyerLogic : MonoBehaviour
 {
     [SerializeField] private float _speed;
@@ -18,10 +20,6 @@ public class PleyerLogic : MonoBehaviour
     private float _xAxisMoveDirection;
     private bool _isJumpKeyPress;
 
-    public void TeleportToStart(Transform teleportPoint)
-    {
-        transform.position = teleportPoint.position;
-    }
 
     private void Start()
     {
@@ -61,6 +59,19 @@ public class PleyerLogic : MonoBehaviour
         AnimatePlayer();
     }
 
+    private enum AnimationState
+    {
+        Player_Idel,
+        Player_Run,
+        Player_Jump,
+        Player_Fall
+    }
+
+    public void TeleportToStart(Transform teleportPoint)
+    {
+        transform.position = teleportPoint.position;
+    }
+
     private void AnimatePlayer()
     {
         if (_isGrounded == true)
@@ -97,13 +108,4 @@ public class PleyerLogic : MonoBehaviour
         _animator.Play(state);
         _currentAnimationState = state;
     }
-
-    private enum AnimationState
-    {
-        Player_Idel,
-        Player_Run,
-        Player_Jump,
-        Player_Fall
-    }
-
 }

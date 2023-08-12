@@ -2628,9 +2628,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8777da5bcc334c34c8d270272f5b5a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnCollectibleEvent:
+  _hero:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 347343316}
+        m_TargetAssemblyTypeName: PlayerBag, Assembly-CSharp
+        m_MethodName: AddCollectible
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2089475751186940654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2639,9 +2651,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 262839414}
     m_Modifications:
     - target: {fileID: 2089475752386716698, guid: 78ae3a5d88a01a548a13f05d6e7129cd, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089475752386716698, guid: 78ae3a5d88a01a548a13f05d6e7129cd, type: 3}
       propertyPath: _player.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2089475752386716698, guid: 78ae3a5d88a01a548a13f05d6e7129cd, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089475752386716698, guid: 78ae3a5d88a01a548a13f05d6e7129cd, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 347343316}
     - target: {fileID: 2089475752386716698, guid: 78ae3a5d88a01a548a13f05d6e7129cd, type: 3}
       propertyPath: _player.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -2655,6 +2679,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2089475752386716698, guid: 78ae3a5d88a01a548a13f05d6e7129cd, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089475752386716698, guid: 78ae3a5d88a01a548a13f05d6e7129cd, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddCollectible
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089475752386716698, guid: 78ae3a5d88a01a548a13f05d6e7129cd, type: 3}
       propertyPath: _player.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -2663,8 +2695,16 @@ PrefabInstance:
       value: AddCollectibleEvent
       objectReference: {fileID: 0}
     - target: {fileID: 2089475752386716698, guid: 78ae3a5d88a01a548a13f05d6e7129cd, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerBag, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089475752386716698, guid: 78ae3a5d88a01a548a13f05d6e7129cd, type: 3}
       propertyPath: _player.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PleyerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089475752386716698, guid: 78ae3a5d88a01a548a13f05d6e7129cd, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2089475752386716698, guid: 78ae3a5d88a01a548a13f05d6e7129cd, type: 3}
       propertyPath: _player.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2833,9 +2873,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8234779592063269844, guid: fc60040c11384b24083ed5c90522695c, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234779592063269844, guid: fc60040c11384b24083ed5c90522695c, type: 3}
       propertyPath: _player.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8234779592063269844, guid: fc60040c11384b24083ed5c90522695c, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234779592063269844, guid: fc60040c11384b24083ed5c90522695c, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 347343316}
     - target: {fileID: 8234779592063269844, guid: fc60040c11384b24083ed5c90522695c, type: 3}
       propertyPath: _player.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -2849,6 +2901,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8234779592063269844, guid: fc60040c11384b24083ed5c90522695c, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234779592063269844, guid: fc60040c11384b24083ed5c90522695c, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddCollectible
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234779592063269844, guid: fc60040c11384b24083ed5c90522695c, type: 3}
       propertyPath: _player.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -2857,8 +2917,16 @@ PrefabInstance:
       value: AddCollectibleEvent
       objectReference: {fileID: 0}
     - target: {fileID: 8234779592063269844, guid: fc60040c11384b24083ed5c90522695c, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerBag, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234779592063269844, guid: fc60040c11384b24083ed5c90522695c, type: 3}
       propertyPath: _player.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PleyerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234779592063269844, guid: fc60040c11384b24083ed5c90522695c, type: 3}
+      propertyPath: _hero.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8234779592063269844, guid: fc60040c11384b24083ed5c90522695c, type: 3}
       propertyPath: _player.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

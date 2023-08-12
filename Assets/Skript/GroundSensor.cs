@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class GroundSensor : MonoBehaviour
 {
-    public bool IsGrounded { get; private set; }
-        
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private Vector2 _boxSize;
-    private float _angle=0;
+    
+    public bool IsGrounded { get; private set; }
 
     private void FixedUpdate()
     {
-        Collider2D hitColliders = Physics2D.OverlapBox(transform.position, _boxSize, _angle,  _layerMask);
+        Collider2D hitColliders = Physics2D.OverlapBox(transform.position, _boxSize, 0,  _layerMask);
         IsGrounded = hitColliders != null;
     }
 }
