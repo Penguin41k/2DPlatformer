@@ -7,9 +7,8 @@ public class DeathLine : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.TryGetComponent(out PleyerController pleyer))
+        if (other.gameObject.TryGetComponent(out PleyerLogic pleyer))
         {
-            Debug.Log("aaa");
             _hero?.Invoke();
         }
         else

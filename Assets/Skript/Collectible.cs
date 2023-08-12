@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Animator))]
 public class Collectible : MonoBehaviour
 {
-    [SerializeField] private UnityEvent _Player;
+    [SerializeField]private UnityEvent OnCollectibleEvent;
     private Animator _animator;
     private bool _isCollected;
+    private string _collected = "Collected";
 
+    
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -17,17 +18,16 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.TryGetComponent(out PleyerController pleyerController))
+        if (_isCollected == false)
         {
-            if (_isCollected==false)
+            if (other.gameObject.TryGetComponent(out PlayerBag pleyerBag))
             {
-                _Player?.Invoke();
+                pleyerBag.AddCollectible();
                 _isCollected = true;
+                _animator.SetBool(_collected, true);
+                float timeDelay = _animator.GetCurrentAnimatorStateInfo(0).length; ;
+                Destroy(gameObject, timeDelay);
             }
-
-            _animator.SetBool("isCollected", true);
-            float timeDelay = _animator.GetCurrentAnimatorStateInfo(0).length;
-            Destroy(gameObject, timeDelay);
         }
     }
 }

@@ -3,31 +3,14 @@ using UnityEngine;
 public class GroundSensor : MonoBehaviour
 {
     public bool IsGrounded { get; private set; }
-    
+        
     [SerializeField] private LayerMask _layerMask;
-    [SerializeField]private Vector2 _boxSize;
+    [SerializeField] private Vector2 _boxSize;
+    private float _angle=0;
 
     private void FixedUpdate()
     {
-        Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, _boxSize, Quaternion.identity, _layerMask);
-
-        if (hitColliders.Length != 0 ) 
-        {
-            IsGrounded=true;
-            Debug.Log("На земле");
-        }
-        else 
-        { 
-            IsGrounded=false;
-            Debug.Log("В воздухе");
-        }
-
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, _boxSize);
-
+        Collider2D hitColliders = Physics2D.OverlapBox(transform.position, _boxSize, _angle,  _layerMask);
+        IsGrounded = hitColliders != null;
     }
 }

@@ -1,6 +1,8 @@
+using System.Collections;
 using UnityEngine;
 
-public class PleyerController : MonoBehaviour
+
+public class PleyerLogic : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
@@ -16,16 +18,9 @@ public class PleyerController : MonoBehaviour
     private float _xAxisMoveDirection;
     private bool _isJumpKeyPress;
 
-    private int amountCollectible;
-
-    public void AddCollectibleEvent()
+    public void TeleportToStart(Transform teleportPoint)
     {
-        amountCollectible++;
-    }
-
-    public void TeleportToStart()
-    {
-        transform.position = _startPoint.position;
+        transform.position = teleportPoint.position;
     }
 
     private void Start()
@@ -33,34 +28,25 @@ public class PleyerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
-        _isGrounded = false;
         _isJumpKeyPress = false;
-        amountCollectible = 0;
+        TeleportToStart(_startPoint);
     }
 
     private void Update()
     {
         _xAxisMoveDirection = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
             _isJumpKeyPress = true;
         }
-
     }
 
     private void FixedUpdate()
     {
         _isGrounded = _groundSensor.IsGrounded;
 
-        if (_xAxisMoveDirection > 0)
-        {
-            _sprite.flipX = false;
-        }
-        else if (_xAxisMoveDirection < 0)
-        {
-            _sprite.flipX = true;
-        }
+        _sprite.flipX = (_xAxisMoveDirection == 0) ? _sprite.flipX : (_xAxisMoveDirection < 0);
 
         Vector2 velocity = new Vector2(_xAxisMoveDirection * _speed, _rigidbody2D.velocity.y);
 
@@ -72,6 +58,11 @@ public class PleyerController : MonoBehaviour
 
         _rigidbody2D.velocity = velocity;
 
+        AnimatePlayer();
+    }
+
+    private void AnimatePlayer()
+    {
         if (_isGrounded == true)
         {
             if (_xAxisMoveDirection != 0)
